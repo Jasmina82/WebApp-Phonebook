@@ -1,0 +1,36 @@
+/**first page styling*/
+body {
+	margin:0 auto;
+	background-image: url("../pics/dogfun.jpg");
+	background-size:100% 700px;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 7px;
+}
+
+.menu h1 {
+	text-align: center;
+	padding: 50px 0 50px 0;
+}
+
+#start {
+	text-align: right;
+	font-size: 22px;
+}
+
+.menu a {
+	padding-right: 50px;
+	text-decoration: none;
+	color: white;
+}
+
+.menu a:hover {
+	color: aqua;
+}
+
+.temp {
+
+	margin: 0 300px 300px 50px;
+	color:white;
+	
+}
