@@ -16,19 +16,18 @@
 			href="register.jsp">Register</a> </nav>
 		<div class="container">
 			<img src="pics/loginprofile.png">
-			<form>
-				<div class="form-input">
-					<input type="text" name="username" placeholder="Enter username" />
-				</div>
-				<br />
-				<div class="form-input">
-					<input type="password" name="password" placeholder="Enter password" />
-				</div>
-				<input type="submit" name="submit" value="LOGIN" class="btn-login" />
 
-				<p class="login-error">
-					<%=request.getAttribute("message")%></p>
-			</form>
+			<div class="form-input">
+				<input type="text" name="username" placeholder="Enter username" />
+			</div>
+			<br />
+			<div class="form-input">
+				<input type="password" name="password" placeholder="Enter password" />
+			</div>
+			<input type="submit" name="submit" value="LOGIN" class="btn-login" />
+
+			<p class="login-error">
+				<%=request.getAttribute("message")%></p>
 
 		</div>
 	</form>

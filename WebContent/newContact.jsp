@@ -17,34 +17,42 @@
 
 	<div class="container">
 
-		<form>
+		<form action="/WebApp-Phonebook/AddContactServlet" method="POST">
 
 			<table>
 				<tr>
 					<td>Name:</td>
-					<td><input type="text" name="name" placeholder="name" /></td>
+					<td><input type="text" name="name" placeholder="name" required
+						autofocus /></td>
 				</tr>
 				<tr>
 					<td>Last name:</td>
-					<td><input type="text" name="lastname" placeholder="last name" /></td>
+					<td><input type="text" name="lastname" placeholder="last name" required
+autofocus/></td>
 				</tr>
 				<tr>
 					<td>Email:</td>
-					<td><input type="text" name="email" placeholder="email" /></td>
+					<td><input type="text" name="email" placeholder="email" required
+autofocus/></td>
 				</tr>
 				<tr>
 					<td>Phone number:</td>
 					<td><input type="text" name="phoneNumber"
-						placeholder="phone number" /></td>
+						placeholder="phone number" required
+autofocus/></td>
 				</tr>
 				<tr>
-					<td>Enter city:</td>
-					<td><input type="text" name="city" placeholder="city" /></td>
+					<td>City:</td>
+					<td><input type="text" name="city" placeholder="city" required
+autofocus/></td>
 				</tr>
 			</table>
 
 			<input type="submit" name="submit" value="Add contact"
 				class="btn-reg" />
+
+			<p class="login-error">
+				<%=request.getAttribute("errorMessage") %> </p>
 
 		</form>
 

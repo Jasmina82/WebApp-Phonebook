@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import beans.User;
-import beans.UserHandler;
+import beans.UserBO;
+import data.UserDAO;
+import data.UserDAOImplementation;
 
 /**
  * Servlet implementation class RegisterServlet
@@ -52,12 +54,19 @@ public class RegisterServlet extends HttpServlet {
 		String city = request.getParameter("city");
 
 		User newUser = new User(username, password, repeatPassword, name, lastName, email, repeatEmail, city);
-		UserHandler userHandler = new UserHandler();
-		if (newUser.validateRegistration() && !userHandler.userExists(username)) {
+		UserBO userBo = new UserBO();
+		if (newUser.validateRegistration() && !userBo.userExists(username)) {
 
-			request.getSession().setAttribute("newUser", newUser);
-			request.getRequestDispatcher("welcomeNewUser.jsp").forward(request, response);
+			userBo.addUser(newUser);
+			request.getSession().setAttribute("act", "Welcome ");
+			request.getSession().setAttribute("username", username);
+			request.getRequestDispatcher("afterLogin.jsp").forward(request, response);
+
+		} else if (userBo.userExists(username)) {
+			request.getSession().setAttribute("message", "Username already exists");
+			request.getRequestDispatcher("register.jsp").forward(request, response);
 		} else {
+
 			request.setAttribute("message", newUser.getMessage());
 			request.getRequestDispatcher("register.jsp").forward(request, response);
 		}

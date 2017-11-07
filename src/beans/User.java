@@ -31,6 +31,14 @@ public class User {
 		this.repeatEmail = repeatEmail;
 		this.city = city;
 	}
+	public User(String username, String password, String name, String lastName, String email, String city) {
+		this.username = username;
+		this.password = password;
+		this.name = name;
+		this.lastName = lastName;
+		this.email = email;
+		this.city = city;
+	}
 
 	public String getUsername() {
 		return username;

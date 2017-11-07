@@ -8,9 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-import beans.UserHandler;
-
+import beans.UserBO;
 
 /**
  * Servlet implementation class LoginServlet
@@ -18,29 +16,28 @@ import beans.UserHandler;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		/*
+		 * try { Class.forName("com.mysql.jdbc.Driver"); } catch (ClassNotFoundException
+		 * e) { // TODO Auto-generated catch block e.printStackTrace(); }
+		 **/
 	}
-	
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		// HttpSession session = request.getSession(true);
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		UserHandler userHandler=new UserHandler();
-		
-		
-		if (userHandler.userExists(username)) {
-			if (userHandler.validPassword(username, password)) {
+		UserBO userBo = new UserBO();
+
+		if (userBo.userExists(username)) {
+			if (userBo.validPassword(username, password)) {
 
 				request.getSession().setAttribute("username", username);
-				request.getSession().setAttribute("password", password);
-				request.getRequestDispatcher("home.jsp").forward(request, response);
+				request.getSession().setAttribute("act", "Welcome ");
+				request.getRequestDispatcher("afterLogin.jsp").forward(request, response);
 			}
 		}
 
