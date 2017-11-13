@@ -28,21 +28,24 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// HttpSession session = request.getSession(true);
+	
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		UserBO userBo = new UserBO();
+		
 
 		if (userBo.userExists(username)) {
 			if (userBo.validPassword(username, password)) {
 
 				request.getSession().setAttribute("username", username);
 				request.getSession().setAttribute("act", "Welcome ");
-				request.getRequestDispatcher("afterLogin.jsp").forward(request, response);
+				request.getSession().setAttribute("message",  username);
+				
+				request.getRequestDispatcher("messageManagement.jsp").forward(request, response);
 			}
 		}
 
 		else {
-			request.setAttribute("message", "Username or password not recognized.");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}

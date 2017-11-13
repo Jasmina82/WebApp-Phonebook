@@ -12,6 +12,7 @@ public class Contact {
 	String message;
 	java.util.Date realDate;
 	String date;
+	int id;
 
 	public Contact() {
 
@@ -26,6 +27,17 @@ public class Contact {
 		this.city = city;
 		realDate = new java.util.Date();
 		date = DateFormat.getDateInstance().format(realDate);
+
+	}
+
+	public Contact(String name, String lastName, String email, String phone, String city, int id) {
+
+		this.phone = phone;
+		this.name = name;
+		this.lastName = lastName;
+		this.email = email;
+		this.city = city;
+		this.id = id;
 
 	}
 
@@ -81,6 +93,10 @@ public class Contact {
 		this.phone = phone;
 	}
 
+	public int getId() {
+		return id;
+	}
+
 	public boolean validate() {
 
 		if (!email.matches("\\w+@\\w+\\.\\w+")) {
@@ -96,6 +112,11 @@ public class Contact {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public String toString() {
+		return name + " " + lastName + "," + email + "," + phone + "," + city;
 	}
 
 }

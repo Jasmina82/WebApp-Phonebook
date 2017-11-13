@@ -16,8 +16,6 @@
 
 		<div class="container">
 
-			<form>
-
 				<table>
 					<tr>
 						<td>Enter name:</td>

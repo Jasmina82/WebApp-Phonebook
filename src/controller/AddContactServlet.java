@@ -56,16 +56,19 @@ public class AddContactServlet extends HttpServlet {
 			if (contactBo.addContact(newContact, user)) {
 				request.getSession().setAttribute("act", "New contact added: ");
 				request.getSession().setAttribute("message", name + " " + lastName);
-				request.getRequestDispatcher("contactAdded.jsp").forward(request, response);
+				request.getRequestDispatcher("messageManagement.jsp").forward(request, response);
 			}
 			else if(!contactBo.addContact(newContact, user)) {
 				request.getSession().setAttribute("username", user);
 				request.getSession().setAttribute("act", "Not added ! Contact: ");
 				request.getSession().setAttribute("message", name + " " + lastName);
-				request.getRequestDispatcher("contactAdded.jsp").forward(request, response);
+				request.getRequestDispatcher("messageManagement.jsp").forward(request, response);
 			}
 		}
-
+		else if(newContact.getMessage().equals(null)) {
+			request.getSession().setAttribute("username", user);
+			request.getRequestDispatcher("newContact.jsp").forward(request, response);
+		}
 		else {
 			request.getSession().setAttribute("username", user);
 			request.setAttribute("errorMessage", newContact.getMessage());

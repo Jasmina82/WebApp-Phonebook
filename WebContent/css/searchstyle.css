@@ -1,24 +1,10 @@
 body {
-	background-image: url(../pics/home.jpg);
+	background-image: url(../pics/search.jpg);
 	background-size: 100% 720px;
-	color: white;
+	color: green;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
-#start {
-	text-align: right;
-	font-size: 22px;
-}
-
-.menu a {
-	padding-right: 50px;
-	text-decoration: none;
-	color: white;
-}
-
-.menu a:hover {
-	color: aqua;
-}
 
 .search-box {
 	display: inline-flex;

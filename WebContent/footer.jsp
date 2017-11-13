@@ -1,0 +1,1 @@
+<footer class="text-center">&copy JasminaKurtovic 2017 </footer>
