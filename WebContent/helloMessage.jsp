@@ -21,7 +21,7 @@
 	
 	<form method="post">
 
-		<h1>${act} ${message}</h1>
+		<h1>${act} ${username}</h1>
 
 	</form>
 	

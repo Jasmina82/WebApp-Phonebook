@@ -36,12 +36,7 @@ public class UserDaoTest {
 		assertTrue(exists);
 	}
 
-	@Test
-	public void whenUserExistCalledShouldReturnFalseIfUsernameDoesNotExists() {
-
-		boolean exists = userBo.userExists("jasmina");
-		assertFalse(exists);
-	}
+	
 
 	@Test
 	public void whenValidPasswordCalledShouldReturnTrueIfPasswordFitsToUsername() {

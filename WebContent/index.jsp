@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="css/footer.css" type="text/css">
 </head>
 <body>
+
 	<%@include file="header.jsp"%>
 
 	<h1>WELCOME TO PHONEBOOK</h1>
@@ -25,11 +26,11 @@
 		Keep your contacts safe with us.If you don't have account please
 		follow 'register' link in right upper corner of this site. You can
 		store up to 1000 contacts,edit informations and search contacts based
-		on contact's first name or last name.<br /></br/>Simple registration -
+		on contact's first name letter.<br /></br/>Simple registration -
 		enjoy forever !
 	</p>
 
 	<%@include file="footer.jsp"%>
-
+</form>
 </body>
 </html>

@@ -34,7 +34,7 @@ public class SearchServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+
 	}
 
 	/**
@@ -43,25 +43,24 @@ public class SearchServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
-		String user = (String) request.getSession(false).getAttribute("username");
-		String nameOfContact=request.getParameter("name");
-		
-		ContactBO contactBo=new ContactBO();
-		List<Contact> contacts=new ArrayList<>();
-		contacts= contactBo.searchContact(nameOfContact,user);
-		
-		if(!contacts.isEmpty()) {
-			
-			request.getSession().setAttribute("username", user);
-			request.getSession().setAttribute("contacts",contacts);
-			request.getRequestDispatcher("searchResult.jsp").forward(request,response);
-		}
-		else {
-			request.getSession().setAttribute("username", user);
+
+		String username = (String) request.getSession().getAttribute("username");
+		String nameOfContact = request.getParameter("name");
+
+		ContactBO contactBo = new ContactBO();
+		List<Contact> contacts = new ArrayList<>();
+		contacts = contactBo.searchContact(nameOfContact, username);
+
+		if (!contacts.isEmpty()) {
+
+			request.getSession().setAttribute("username", username);
+			request.setAttribute("contacts", contacts);
+			request.getRequestDispatcher("/searchResult.jsp").forward(request, response);
+		} else {
+			request.getSession().setAttribute("username", username);
 			request.getSession().setAttribute("act", "No result for ");
 			request.getSession().setAttribute("message", nameOfContact);
-			request.getRequestDispatcher("contactManager.jsp").forward(request, response);
+			request.getRequestDispatcher("/messageManagement.jsp").forward(request, response);
 		}
 
 	}

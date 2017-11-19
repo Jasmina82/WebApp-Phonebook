@@ -1,6 +1,8 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,19 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import beans.Contact;
 import beans.ContactBO;
 
 /**
- * Servlet implementation class DeleteContactServlet
+ * Servlet implementation class ListAllContacts
  */
-@WebServlet("/DeleteContactServlet")
-public class DeleteContactServlet extends HttpServlet {
+@WebServlet("/ListAllContacts")
+public class ListAllContactsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public DeleteContactServlet() {
+	public ListAllContactsServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -31,21 +34,23 @@ public class DeleteContactServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
-		int id = Integer.parseInt(request.getParameter("id"));
+		String username = (String) request.getSession().getAttribute("username");
 
 		ContactBO contactBo = new ContactBO();
+		List<Contact> contactsList = new ArrayList<>();
+		contactsList = contactBo.listAllContact(username);
 
-		if (contactBo.deleteContact(id)) {
-			request.getSession().setAttribute("act", "Contact ");
-			request.getSession().setAttribute("message", "deleted");
-			request.getRequestDispatcher("/messageManagement.jsp").forward(request, response);
+		if (!contactsList.isEmpty()) {
+			request.getSession().setAttribute("username", username);
+			request.setAttribute("contactsList", contactsList);
+			request.getRequestDispatcher("/listAllContacts.jsp").forward(request, response);
+
 		} else {
-			request.getSession().setAttribute("act", "Something went wrong! ");
-			request.getSession().setAttribute("message", "Contact is not deleted.");
+
+			request.getSession().setAttribute("act", "Your contact list ");
+			request.getSession().setAttribute("message", "is empty");
 			request.getRequestDispatcher("/messageManagement.jsp").forward(request, response);
 		}
-
 	}
 
 	/**

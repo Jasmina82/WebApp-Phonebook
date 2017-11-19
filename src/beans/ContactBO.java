@@ -28,4 +28,16 @@ public class ContactBO {
 	public boolean deleteContact(int id) {
 		return contactDao.deleteContact(id);
 	}
+	public boolean editContact(Contact contact,int id) {
+		return contactDao.editContact(contact,id);
+	}
+	public Contact getContactById(int id) {
+		return contactDao.getContactById(id);
+	}
+	public List<Contact> listAllContact(String username) {
+		return contactDao.listAllContacts(username);
+	}
+	public int getNumOfContacts(String username) {
+		return contactDao.getNumOfContacts(username);
+	}
 }

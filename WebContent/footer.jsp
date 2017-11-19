@@ -1,1 +1,2 @@
-<footer class="text-center">&copy JasminaKurtovic 2017 </footer>
+
+<footer>&copy JasminaKurtovic 2017 </footer>

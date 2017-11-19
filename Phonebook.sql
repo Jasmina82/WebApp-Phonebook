@@ -8,12 +8,12 @@ DROP TABLE IF EXISTS phonebook.users;
 
 CREATE TABLE IF NOT EXISTS phonebook.users  (
 
-    username VARCHAR(20) PRIMARY KEY,
-    name VARCHAR(40),
-    lastName VARCHAR(40),
-    email VARCHAR(40),
-    city VARCHAR(40),
-    password VARCHAR(40)
+    username VARCHAR(20) PRIMARY KEY NOT NULL,
+    name VARCHAR(40) NOT NULL,
+    lastName VARCHAR(40) NOT NULL,
+    email VARCHAR(40) NOT NULL,
+    city VARCHAR(40) NOT NULL,
+    password VARCHAR(40) NOT NULL
 ); 
 
 INSERT INTO phonebook.users (username,name,lastName,email,city,password) VALUES ('jasmina82','Jasmina','Kurtovic','jasmina999@hotmail.com','Gracanica','28animsaj');
@@ -21,13 +21,13 @@ INSERT INTO phonebook.users (username,name,lastName,email,city,password) VALUES 
 CREATE TABLE IF NOT EXISTS phonebook.contacts  (
 
     id INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    name VARCHAR(40),
-    lastName VARCHAR(40),
-    email VARCHAR(40),
-    phone VARCHAR(15),
-    city VARCHAR(40),
-    date VARCHAR(12),
-    username VARCHAR(20),
+    name VARCHAR(40)  NOT NULL,
+    lastName VARCHAR(40) NOT NULL,
+    email VARCHAR(40) NOT NULL,
+    phone VARCHAR(15) NOT NULL,
+    city VARCHAR(40) NOT NULL,
+    date VARCHAR(12) NOT NULL,
+    username VARCHAR(20) NOT NULL,
      FOREIGN KEY (username)
         REFERENCES phonebook.users (username)
     

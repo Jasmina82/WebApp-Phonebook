@@ -36,22 +36,43 @@ public class ContactDAOImplementation implements ContactDAO {
 
 	}
 
+	public int getNumOfContacts(String username) {
+		int numberOfContacts = 0;
+		try {
+			PreparedStatement pstmt = conn
+					.prepareStatement("SELECT * FROM phonebook.contacts WHERE username=?;");
+
+			pstmt.setString(1, username);
+
+			ResultSet rs = pstmt.executeQuery();
+			while(rs.next()) {
+				numberOfContacts++;
+			}
+
+			rs.close();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+		return numberOfContacts;
+	}
+
 	@Override
 	public List<Contact> searchContact(String contactInfo, String username) {
 		List<Contact> contacts = new LinkedList<>();
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(
-					"SELECT * FROM phonebook.contacts WHERE username=? AND name  LIKE ? OR lastName LIKE ?;");
+			PreparedStatement pstmt = conn
+					.prepareStatement("SELECT * FROM phonebook.contacts WHERE username=? AND name LIKE ?;");
 
 			pstmt.setString(1, username);
 			pstmt.setString(2, contactInfo + "%");
-			pstmt.setString(3, contactInfo + "%");
 
 			ResultSet rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				Contact contact = new Contact(rs.getString("name"), rs.getString("lastName"), rs.getString("email"),
 						rs.getString("phone"), rs.getString("city"), rs.getInt("id"));
+				contact.setDate(rs.getString("date"));
 
 				contacts.add(contact);
 
@@ -78,6 +99,75 @@ public class ContactDAOImplementation implements ContactDAO {
 
 			return false;
 		}
+	}
+
+	public Contact getContactById(int id) {
+		Contact contact = new Contact();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM phonebook.contacts WHERE id=? ;");
+
+			pstmt.setInt(1, id);
+
+			ResultSet rs = pstmt.executeQuery();
+
+			rs.next();
+			contact = new Contact(rs.getString("name"), rs.getString("lastName"), rs.getString("email"),
+					rs.getString("phone"), rs.getString("city"), id);
+
+			rs.close();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		return contact;
+	}
+
+	public boolean editContact(Contact contact, int id) {
+		try {
+			PreparedStatement pstmt = conn.prepareStatement(
+					"UPDATE phonebook.contacts SET name=?,lastName=?,email=?,phone=?,city=? WHERE id=?;");
+
+			pstmt.setString(1, contact.getName());
+			pstmt.setString(2, contact.getLastName());
+			pstmt.setString(3, contact.getEmail());
+			pstmt.setString(4, contact.getPhone());
+			pstmt.setString(5, contact.getCity());
+			pstmt.setInt(6, id);
+
+			pstmt.executeUpdate();
+			return true;
+		} catch (SQLException e) {
+
+			return false;
+		}
+	}
+
+	@Override
+	public List<Contact> listAllContacts(String username) {
+
+		List<Contact> contacts = new LinkedList<>();
+		try {
+			PreparedStatement pstmt = conn.prepareStatement("SELECT * FROM phonebook.contacts WHERE username=? ;");
+
+			pstmt.setString(1, username);
+
+			ResultSet rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				Contact contact = new Contact(rs.getString("name"), rs.getString("lastName"), rs.getString("email"),
+						rs.getString("phone"), rs.getString("city"));
+				contact.setDate(rs.getString("date"));
+				contacts.add(contact);
+
+			}
+			rs.close();
+		} catch (SQLException e) {
+
+			e.printStackTrace();
+		}
+
+		return contacts;
 	}
 
 }

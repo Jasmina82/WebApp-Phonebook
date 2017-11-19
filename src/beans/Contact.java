@@ -15,7 +15,8 @@ public class Contact {
 	int id;
 
 	public Contact() {
-
+		realDate = new java.util.Date();
+		date = DateFormat.getDateInstance().format(realDate);
 	}
 
 	public Contact(String name, String lastName, String email, String phone, String city) {
@@ -43,6 +44,10 @@ public class Contact {
 
 	public String getDate() {
 		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public String getName() {
