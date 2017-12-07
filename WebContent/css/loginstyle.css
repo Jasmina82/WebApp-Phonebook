@@ -1,0 +1,35 @@
+form {
+	text-align: center;
+	width: 30%;
+	margin-left: 35%;
+	margin-top: 20px;
+}
+
+.login {
+	margin-top: 10%;
+}
+
+body {
+	background-image: url(../pics/logImage.jpg);
+	background-repeat: no repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+h1 {
+	color: black;
+	font-family: 'Pacifico', cursive;
+	text-align: center;
+	padding-bottom: 10px;
+}
+
+label {
+	color: black;
+}
+
+input[type="text"], input[type="password"], select {
+	opacity: 0.6;
+	color: darkorange;
+}
+
