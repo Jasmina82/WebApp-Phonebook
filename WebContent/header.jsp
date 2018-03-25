@@ -1,23 +1,18 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<a class="navbar-brand" href="#">Phonebook</a>
 
-<header class="text-right">
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Phonebook</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li><a href="index.jsp">Home</a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="register.jsp"><span
-						class="glyphicon glyphicon-user"></span> Register</a></li>
-				<li><a href="login.jsp"><span
-						class="glyphicon glyphicon-log-in"></span> Login</a></li>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="register.jsp"> Register</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="login.jsp"> Login</a>
+				</li>
 			</ul>
 		</div>
 	</nav>
-</header>
-
 

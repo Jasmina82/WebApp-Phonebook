@@ -9,12 +9,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="mobile-web-app-capable" content="yes">
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-<link rel="stylesheet" href="css/headerHome.css" type="text/css">
-<link rel="stylesheet" href="css/footer.css" type="text/css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/mainStyle.css" />
 
 <title>Search result</title>
 </head>
@@ -22,13 +18,13 @@
 	<%@include file="headerHome.jsp"%>
 
 	<h1 class="text-center">Search result</h1>
+	<div class="container-fluid table-responsive">
 
-	<form action="" method="post">
-		<div class="container">
+		<form class="contactList" method="post">
 
-			<div>
-				<table
-					class="table table-bordered table-striped table-hover text-center">
+			<table
+				class="table table-bordered table-striped table-hover text-center table-light">
+				
 					<thead>
 						<tr>
 							<td colspan="9">Contact's info</td>
@@ -36,55 +32,46 @@
 					</thead>
 
 					<tr>
-						<th class="text-center">Num
-						</td>
-						<th class="text-center">Name
-						</td>
-						<th class="text-center">Last name
-						</td>
-						<th class="text-center">Email
-						</td>
-						<th class="text-center">Phone number
-						</td>
-						<th class="text-center">City
-						</td>
-						<th class="text-center">Date of input
-										</td>
-						
-										<th colspan="2" class="text-center">Action
-										</td>
-									</tr>
+						<th class="text-center">Num</th>
+						<th class="text-center">Name</th>
+						<th class="text-center">Last name</th>
+						<th class="text-center">Email</th>
+						<th class="text-center">Phone number</th>
+						<th colspan="2" class="text-center">Action</th>
+					</tr>
+					<tbody>
+						<c:forEach items="${contacts}" var="contact"
+							varStatus="contactsId">
 
-					<c:forEach items="${contacts}" var="contact" varStatus="contactsId">
+							<tr>
+								<td>${contactsId.count}</td>
+								<td>${contact.name}</td>
+								<td>${contact.lastName}</td>
+								<td>${contact.email}</td>
+								<td>${contact.phone}</td>
 
-						<tr>
-							<td>${contactsId.count}</td>
-							<td>${contact.name}</td>
-							<td>${contact.lastName}</td>
-							<td>${contact.email}</td>
-							<td>${contact.phone}</td>
-							<td>${contact.city}</td>
-							<td>${contact.date}</td>
-							<td><a href="DeleteContactServlet?id=${contact.id}">Delete
-									contact </a></td>
-							<td><a href="EditContactServlet?id=${contact.id}">Edit
-									contact </td>
-							</a>
+								<td><a href="DeleteContactServlet?id=${contact.id}">Delete
+										contact </a></td>
+								<td><a href="EditContactServlet?id=${contact.id}">Edit
+										contact </td>
+								</a>
 
-						</tr>
+							</tr>
 
-					</c:forEach>
+						</c:forEach>
+					</tbody>
 				</table>
+		</form>
 
-			</div>
-
-
-		</div>
-
-	</form>
-
-	<%@include file="footer.jsp"%>
-<body>
-
+	</div>
+	
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 </body>
 </html>

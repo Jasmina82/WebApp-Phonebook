@@ -13,54 +13,61 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-<link rel="stylesheet" href="css/addContactstyle.css" type="text/css">
-<link rel="stylesheet" href="css/headerHome.css" type="text/css">
-<link rel="stylesheet" href="css/footer.css" type="text/css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/mainStyle.css" />
 <body>
 	<%@include file="headerHome.jsp"%>
 
 	<h1>Edit contact</h1>
 
-	<div class="signup">
-		<form action="/WebApp-Phonebook/EditContactServlet" method="post">
-			<div class="signup-form">
 
-				<div class="form-group">
-					<input type="text" name="name" placeholder=${contact.name}
-						class="form-control" required />
-				</div>
-				<div class="form-group">
-					<input type="text" name="lastname" placeholder=${contact.lastName}
-						class="form-control" required />
-				</div>
-				<div class="form-group">
-					<input type="text" name="email" placeholder=${contact.email}
-						class="form-control" required />
-				</div>
-				<div class="form-group">
-					<input type="phone" name="phoneNumber" placeholder=${contact.phone}
-						class="form-control" required />
-				</div>
-				<div class="form-group">
-					<input type="text" name="city" placeholder=${contact.city}
-						class="form-control" required /><br />
-					<br />
-				</div>
-				<input type="hidden" name="hiddenId" value="${contact.id}"/>
+	<form class="manipl-con" action="/WebApp-Phonebook/EditContactServlet"
+		method="post">
+		<div class="signup-form">
 
-				<div class="form-group">
-					<input type="submit" name="submit" value="Edit contact"
-						class="btn-reg" />
-				</div>
-		</form>
-	</div>
-	</div>
+			<div class="form-group">
+				<input type="text" name="name" placeholder=${contact.name
+					}
+						class="form-control" required />
+			</div>
+			<div class="form-group">
+				<input type="text" name="lastname" placeholder=${contact.lastName
+					}
+						class="form-control" required />
+			</div>
+			<div class="form-group">
+				<input type="text" name="email" placeholder=${contact.email
+					}
+						class="form-control" required />
+			</div>
+			<div class="form-group">
+				<input type="phone" name="phoneNumber" placeholder=${contact.phone
+					}
+						class="form-control" required />
+			</div>
+			<div class="form-group">
+				<input type="text" name="city" placeholder=${contact.city
+					}
+						class="form-control" required /><br /> <br />
+			</div>
+			<input type="hidden" name="hiddenId" value="${contact.id}" />
 
-	<%@include file="footer.jsp"%>
+			<div class="form-group">
+				<button type="submit" class="btn btn-success">Edit</button>
+			</div>
+		</div>
+	</form>
+
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+
 
 </body>
 </html>

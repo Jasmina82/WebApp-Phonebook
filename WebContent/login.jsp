@@ -9,15 +9,8 @@
 
 <title>Login</title>
 
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-<link rel="stylesheet" href="css/loginstyle.css" type="text/css">
-<link rel="stylesheet" href="css/header.css" type="text/css">
-<link rel="stylesheet" href="css/footer.css" type="text/css">
-<link href="https://fonts.googleapis.com/css?family=Pacifico"
-	rel="stylesheet">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/mainStyle.css" />
 </head>
 <body>
 	<%@include file="header.jsp"%>
@@ -26,7 +19,8 @@
 
 		<div class="login-form">
 			<h1>Login form</h1>
-			<form action="/WebApp-Phonebook/LoginServlet" method="post">
+			<form class="manipl-con" action="/WebApp-Phonebook/LoginServlet"
+				method="post">
 				<div class="form-group">
 					<label for="username">Username</label> <input type="text"
 						name="username" class="form-control" required>
@@ -42,6 +36,15 @@
 			</form>
 		</div>
 	</div>
-	<%@include file="footer.jsp"%>
+
+	
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 </body>
 </html>

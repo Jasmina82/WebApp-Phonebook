@@ -13,48 +13,38 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="mobile-web-app-capable" content="yes">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-
-<link rel="stylesheet" href="css/headerHome.css" type="text/css">
-<link rel="stylesheet" href="css/footerForList.css" type="text/css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/mainStyle.css" />
 <body>
 	<%@include file="headerHome.jsp"%>
 
 	<h1 class="text-center">List of all contacts</h1>
 
-	<form action="/WebApp-Phonebook/ListAllContacts" method="post">
-		<div class="container">
+	<div class="container-fluid table-responsive">
+		<form class="contactList" action="/WebApp-Phonebook/ListAllContacts"
+			method="post">
 
-			<div>
-				<table class="table table-bordered table-striped table-hover text-center">
-					<thead>
-						<tr>
-							<td colspan="7">Contact's info</td>
-						</tr>
-					</thead>
-
+			<table
+				class="table table-bordered table-striped table-hover table-light">
+				<thead>
 					<tr>
-						<th class="text-center">Num
-						</td>
-						<th class="text-center">Name
-						</td>
-						<th class="text-center">Last name
-						</td>
-						<th class="text-center">Email
-						</td>
-						<th class="text-center">Phone number
-						</td>
-						<th class="text-center">City
-						</td>
-						<th class="text-center">Date of input
-						</td>
-
+						<td colspan="7">Contact's info</td>
 					</tr>
+				</thead>
 
-					<c:forEach items="${contactsList}" var="contact" varStatus="contactsId">
+				<tr>
+					<th class="text-center">Num</th>
+					<th class="text-center">Name</th>
+					<th class="text-center">Last name</th>
+					<th class="text-center">Email</th>
+					<th class="text-center">Phone number</th>
+					<th class="text-center">City</th>
+					<th class="text-center">Date of input</th>
+
+				</tr>
+				<tbody>
+					<c:forEach items="${contactsList}" var="contact"
+						varStatus="contactsId">
 
 						<tr>
 							<td>${contactsId.count}</td>
@@ -68,18 +58,21 @@
 						</tr>
 
 					</c:forEach>
-				</table>
+				</tbody>
+			</table>
 
-			</div>
+		</form>
+	</div>
 
-
-		</div>
-
-
-</form>
-
-
-	<%@include file="footer.jsp"%>
 	
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
+
 </body>
 </html>

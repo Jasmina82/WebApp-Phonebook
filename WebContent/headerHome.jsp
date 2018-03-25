@@ -1,27 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		
+		<a class="navbar-brand" href="#">${username}</a>
 
-<header class="text-right">
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">${username}</a>
-			</div>
-			<ul class="nav navbar-nav" hover>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-				<li><a href="#"></a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<li><a href="addContact.jsp"><span
-						class="glyphicon glyphicon-user"></span> Add contact</a></li>
-				<li><a href="search.jsp"><span
-						class="glyphicon glyphicon-user"></span> Search contact</a></li>
-						<li><a href="/WebApp-Phonebook/ListAllContacts"><span
-						class="glyphicon glyphicon-user"></span> List contacts</a></li>
-				<li><a href="index.jsp"><span
-						class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+		<div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="addContact.jsp"> Add contact</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="search.jsp"> Search contact</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="/WebApp-Phonebook/ListAllContacts"> List contacts</a>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="index.jsp"> Logout</a>
+				</li>
+
 			</ul>
 		</div>
 	</nav>
-</header>
+	
 
 

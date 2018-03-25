@@ -7,30 +7,30 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="mobile-web-app-capable" content="yes">
 <title>Phonebook</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-<link rel="stylesheet" href="css/style.css" />
-<link rel="stylesheet" href="css/header.css" type="text/css">
-<link rel="stylesheet" href="css/footer.css" type="text/css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/mainStyle.css" />
 </head>
 <body>
 
 	<%@include file="header.jsp"%>
 
-	<h1>WELCOME TO PHONEBOOK</h1>
+	<h1 class="text-center welcome">WELCOME TO PHONEBOOK</h1>
 
-	<p class="temp">
-
-		Keep your contacts safe with us.If you don't have account please
-		follow 'register' link in right upper corner of this site. You can
-		store up to 1000 contacts,edit informations and search contacts based
-		on contact's first name letter.<br /></br/>Simple registration -
-		enjoy forever !
+	<p class="text-center temp">
+		You don't have account?<a class="nav-link" href="register.jsp">
+			Sign up</a>
 	</p>
 
-	<%@include file="footer.jsp"%>
-</form>
+	</form>
+	
+
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 </body>
 </html>

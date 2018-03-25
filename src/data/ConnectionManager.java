@@ -28,12 +28,21 @@ public class ConnectionManager {
 	private boolean openConnection() {
 		try {
 			
+			// load and register JDBC driver for MySQL
+					
+						Class.forName("com.mysql.jdbc.Driver"); 
+						
+			
 			connection = DriverManager.getConnection(CONN_STRING, USERNAME, PASSWORD);
 			return true;
 		} catch (SQLException e) {
 			System.err.println(e);
-			return false;
+			
 		}
+		catch(ClassNotFoundException e) {
+			
+		}
+		return false;
 	}
 
 	public Connection getConnection() {

@@ -1,7 +1,7 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
-   
+	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,29 +9,29 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Search</title>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-<link rel="stylesheet" href="css/header.css" type="text/css">
-<link rel="stylesheet" href="css/footer.css" type="text/css">
-<link rel="stylesheet" href="css/searchstyle.css" />
-<link rel="stylesheet" href="css/font-awesome.css" />
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/mainStyle.css" />
 </head>
 <body>
-<%@include file="headerHome.jsp"%>
-	<form action="/WebApp-Phonebook/SearchServlet" method="post">
-		<div class="search-box">
-			<input class="search-box-input" type="search" name="name"
-				placeholder="search...">
+	<%@include file="headerHome.jsp"%>
+	<form class="form-inline justify-content-center"
+		action="/WebApp-Phonebook/SearchServlet" method="post">
+		
+		<input class="form-control mr-sm-2" type="search"
+			placeholder="Search..." aria-label="Search" name="name" required>
+		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 
-			<button class="search-box-icon">
-				<i class="fa fa-search" aria-hidden="true"></i>
-			</button>
-		</div>
-		<%@include file="footer.jsp"%>
 	</form>
+
+
 	
-	
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+		integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+		crossorigin="anonymous"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+		integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+		crossorigin="anonymous"></script>
 </body>
 </html>
